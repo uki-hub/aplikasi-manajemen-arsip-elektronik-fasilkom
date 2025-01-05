@@ -62,8 +62,8 @@ const TableDocument = (props: TableDocumentProps) => {
 
   const bodyColumns: BodyColumn<DocumentModel>[] = [
     {
-      builder: ({ rowIndex }) => {
-        return <div>{rowIndex + 1}</div>;
+      builder: ({ rowIndex, lastRowIndex }) => {
+        return <div>{lastRowIndex + rowIndex + 1}</div>;
       },
     },
     {
