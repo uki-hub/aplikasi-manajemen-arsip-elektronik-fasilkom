@@ -8,6 +8,7 @@ import { useShallow } from "zustand/react/shallow";
 
 const ApproveButton = ({ dokumen_id }: { dokumen_id: number }) => {
   const setLoading = useAppStore.getState().loadingStore.actions.setLoading;
+  const show = useAppStore.getState().messageModalStore.actions.show;
   const [open, setOpen] = useState<boolean>(false);
 
   const { approveDocument } = useAppStore(
@@ -18,7 +19,12 @@ const ApproveButton = ({ dokumen_id }: { dokumen_id: number }) => {
 
   const { mutate } = useMutation({
     mutationFn: () => approveDocument(dokumen_id),
-    onSuccess() {},
+    onSuccess(success) {
+      if (success) show("Berhasil approve dokumen");
+      else show("Gagal approve dokumen");
+      
+      setOpen(false);
+    },
     onSettled: () => setLoading(false),
   });
 

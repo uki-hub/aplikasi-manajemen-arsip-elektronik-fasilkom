@@ -45,7 +45,10 @@ export const initDocumentPageStore: ImmerStateCreator<documentPageSlice> = (set,
       },
       async approveDocument(dokumen_id) {
         try {
-          await appRequest.approveDocumentPengajuan({ id_dokumen: dokumen_id });
+          const res = await appRequest.approveDocumentPengajuan({ id_dokumen: dokumen_id });
+
+          if (res.message != "success") return false;
+
           await get().documentPageStore.actions.getDocuments();
         } catch {
           return false;
