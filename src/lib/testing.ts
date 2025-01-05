@@ -1,5 +1,4 @@
 import { StateCreator, create } from "zustand";
-import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
 // practice-slice.ts
@@ -27,7 +26,7 @@ export const practiceSlice: ImmerStateCreator<PracticeState> = (set) => ({
   },
 });
 
-export const practiceSlice2: ImmerStateCreator<PracticeState2> = (set, get) => ({
+export const practiceSlice2: ImmerStateCreator<PracticeState2> = (set) => ({
   PracticeState2: {
     activeQuestion: 0,
     nextQuestion: () =>
