@@ -71,7 +71,7 @@ const AddDocumentPage = () => {
 
       navigate("/management-document");
 
-      useAppStore.getState().messageModalStore.actions.show("Your data have been saved.");
+      useAppStore.getState().messageModalStore.actions.show("Berhasil menyimpan data");
     };
     fileReader.readAsDataURL(file);
   };

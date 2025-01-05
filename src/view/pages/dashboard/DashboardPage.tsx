@@ -43,7 +43,7 @@ const DashboardPage = () => {
     return (
       <div className="flex-wrap flex flex-row w-full gap-5">
         <BaseCard title="APPROVAL PENDING" value={data.approval_pending} icon={<FaUsers />} />
-        <BaseCard title="TOTAL DOCUMENTS" value={data.user_dokumen} icon={<SiGoogledocs />} />
+        <BaseCard title="TOTAL DOCUMENTS" value={data.total_dokumen} icon={<SiGoogledocs />} />
       </div>
     );
   }
